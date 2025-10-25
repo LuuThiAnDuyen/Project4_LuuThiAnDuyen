@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Danh sách Test Data - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            padding-top: 24px;
+        }
+
+        .container {
+            max-width: 1100px;
+        }
+
+        .table thead th {
+            white-space: nowrap;
+        }
+
+        .badge-counter {
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3 class="m-0">Danh sách Test Data - Login</h3>
+            <div class="d-flex gap-2">
+                <a class="btn btn-secondary" href="{{ url_for('index') }}">➕ Thêm test case</a>
+                <a class="btn btn-outline-secondary" href="{{ url_for('download') }}">📥 Tải Excel</a>
+            </div>
+        </div>
+
+        <div class="card p-3 mb-3 shadow-sm">
+            <div class="row g-2">
+                <div class="col-sm-6">
+                    <label class="form-label">Tìm kiếm</label>
+                    <input id="searchInput" type="text" class="form-control"
+                        placeholder="Nhập từ khóa (TC, email, ghi chú...)" />
+                </div>
+                <div class="col-sm-3">
+                    <label class="form-label">Expected Result</label>
+                    <select id="expectedFilter" class="form-select">
+                        <option value="">— Tất cả —</option>
+                        <option value="pass">Pass</option>
+                        <option value="fail">Fail</option>
+                        <option value="validation error">Validation error</option>
+                    </select>
+                </div>
+                <div class="col-sm-3 d-flex align-items-end">
+                    <div class="ms-sm-auto">
+                        <span class="text-muted">Hiển thị:</span>
+                        <span id="countBadge" class="badge text-bg-primary badge-counter">0</span>
+                        <span class="text-muted">bản ghi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive shadow-sm">
+            <table id="dataTable" class="table table-striped table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        {% for h in headers %}<th>{{ h }}</th>{% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[4] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <p class="text-muted mt-2">Tổng số dòng (không tính header): <strong id="totalRows">{{ rows|length }}</strong>
+        </p>
+    </div>
+
+    <script>
+        (function () {
+            const searchInput = document.getElementById("searchInput");
+            const expectedFilter = document.getElementById("expectedFilter");
+            const tbody = document.querySelector("#dataTable tbody");
+            const rows = Array.from(tbody.querySelectorAll("tr"));
+            const countBadge = document.getElementById("countBadge");
+
+            function norm(s) { return (s || "").toString().toLowerCase().trim(); }
+
+            function applyFilters() {
+                const q = norm(searchInput.value);
+                const exp = norm(expectedFilter.value);
+                let visible = 0;
+
+                rows.forEach(tr => {
+                    const cells = Array.from(tr.children).map(td => norm(td.textContent));
+                    const matchesText = !q || cells.some(c => c.includes(q));
+                    const matchesExpected = !exp || norm(cells[3]) === exp; // cột Expected
+                    const show = matchesText && matchesExpected;
+                    tr.style.display = show ? "" : "none";
+                    if (show) visible++;
+                });
+
+                countBadge.textContent = visible;
+            }
+
+            countBadge.textContent = rows.length;
+            searchInput.addEventListener("input", applyFilters);
+            expectedFilter.addEventListener("change", applyFilters);
+        })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

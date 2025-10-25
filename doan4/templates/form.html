@@ -1,0 +1,22 @@
+<hr class="my-4" />
+<h5 class="mb-2"> AI Generate</h5>
+<form method="POST" action="{{ url_for('ai_generate') }}" class="card p-3 shadow-sm">
+    <div class="row g-2">
+        <div class="col-auto">
+            <label class="form-label">Số lượng</label>
+            <input type="number" class="form-control" name="n" min="1" max="50" value="5" />
+        </div>
+        <div class="col">
+            <label class="form-label">Hướng dẫn thêm cho AI (tuỳ chọn)</label>
+            <input type="text" class="form-control" name="hints"
+                placeholder="VD: thêm 2 case email sai định dạng, 1 case password trống, ghi chú ngắn gọn..." />
+        </div>
+        <div class="col-auto d-flex align-items-end">
+            <button class="btn btn-success">Generate & Save</button>
+        </div>
+    </div>
+    <p class="text-muted small mt-2">
+        Cần đặt biến môi trường <code>OPENAI_API_KEY</code>. Có thể đổi provider qua
+        <code>AI_PROVIDER</code>=openai|ollama.
+    </p>
+</form>
