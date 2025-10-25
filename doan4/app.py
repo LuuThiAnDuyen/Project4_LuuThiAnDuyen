@@ -75,15 +75,15 @@ def ai_generate():
     try:
         ai_cases = ai_generate_login_cases(n=n, hints=hints)
     except Exception as e:
-        print(" AI error:", e)  # LOG
-        flash(f" AI sinh dữ liệu thất bại: {e}", "error")
+        print("❌ AI error:", e)  # LOG
+        flash(f"⚠️ AI sinh dữ liệu thất bại: {e}", "error")
         return redirect(url_for("index"))
 
     print(f">>> AI trả về {len(ai_cases)} case:", ai_cases)  # LOG
 
     if not ai_cases:
         flash(
-            " AI không sinh được test case nào (có thể do JSON sai hoặc thiếu API key).",
+            "⚠️ AI không sinh được test case nào (có thể do JSON sai hoặc thiếu API key).",
             "error",
         )
         return redirect(url_for("index"))
@@ -102,14 +102,14 @@ def ai_generate():
             print(">>> appended:", row)  # LOG
             saved += 1
         except Exception as e:
-            print(" append_row error:", e)  # LOG
-            flash(f" Lỗi khi ghi Excel ở {tcid}: {e}", "error")
+            print("❌ append_row error:", e)  # LOG
+            flash(f"⚠️ Lỗi khi ghi Excel ở {tcid}: {e}", "error")
 
     if saved == 0:
-        flash(" Không ghi được dòng nào vào Excel.", "error")
+        flash("⚠️ Không ghi được dòng nào vào Excel.", "error")
         return redirect(url_for("index"))
 
-    flash(f" AI đã sinh & lưu {saved} test case vào Excel.", "success")
+    flash(f"🤖 AI đã sinh & lưu {saved} test case vào Excel.", "success")
     return redirect(url_for("table_view"))
 
 

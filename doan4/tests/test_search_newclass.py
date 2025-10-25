@@ -13,7 +13,7 @@ DATA_FILE = os.path.join(
 
 SCREENSHOT_DIR = os.path.join("reports", "screenshots", "search")
 os.makedirs(SCREENSHOT_DIR, exist_ok=True)
-VIDEO_DIR = os.path.join("reports", "videos")
+VIDEO_DIR = os.path.join("reports", "videos", "search")
 os.makedirs(VIDEO_DIR, exist_ok=True)
 # tests/test_search_newclass.py (đầu file)
 STRICT_COUNT_FROM_EXCEL = (

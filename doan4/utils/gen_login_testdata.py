@@ -1,9 +1,12 @@
+# utils/data_generator.py
+
 import os
 from openpyxl import Workbook
 from openpyxl.styles import Font, Alignment
 
 
 def generate_login_test_data():
+    # ✅ Tính đường dẫn tuyệt đối tới thư mục `data/`
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     data_dir = os.path.join(project_root, "data")
     os.makedirs(data_dir, exist_ok=True)
@@ -14,50 +17,23 @@ def generate_login_test_data():
     ws = wb.active
     ws.title = "LoginTestData"
 
-    headers = [
-        "TestCaseID",
-        "Email",
-        "Password",
-        "ExpectedMessage",
-        "ActualResult",
-        "Screenshot",
-        "VideoPath",
-    ]
+    # Header
+    headers = ["Test Case", "Username/Email", "Password", "Expected Result", "Note"]
     ws.append(headers)
 
-    for col in range(1, len(headers) + 1):
-        cell = ws.cell(row=1, column=col)
-        cell.font = Font(bold=True)
-        cell.alignment = Alignment(horizontal="center")
-
+    # Test data
     data = [
-        [
-            "TC01",
-            "luuthianduyen@gmail.com",
-            "luuthianduyen247",
-            "Tài khoản của tôi",
-            "",
-            "",
-            "",
-        ],
-        ["TC02", "", "123456789", "Email là bắt buộc", "", "", ""],
-        ["TC03", "valid_user@gmail.com", "", "Mật khẩu là bắt buộc", "", "", ""],
-        [
-            "TC04",
-            "invalid_user@gmail.com",
-            "wrongpass",
-            "Sai tên đăng nhập hoặc mật khẩu",
-            "",
-            "",
-            "",
-        ],
+        ["TC01", "valid@example.com", "pass123", "Pass", "Đăng nhập thành công"],
+        ["TC02", "invalid@example.com", "wrongpass", "Fail", "Tài khoản không tồn tại"],
+        ["TC03", "", "somepass", "Validation error", "Thiếu email"],
+        ["TC04", "valid@example.com", "", "Validation error", "Thiếu mật khẩu"],
     ]
 
     for row in data:
         ws.append(row)
 
     wb.save(file_path)
-    print(f" File test data đã sinh tại: {file_path}")
+    print(f"✅ File test data đã được lưu tại: {file_path}")
 
 
 if __name__ == "__main__":

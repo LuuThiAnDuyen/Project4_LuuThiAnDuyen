@@ -2,10 +2,7 @@ base_url: "https://tutor.growgreen.edu.vn/" # cổng gia sư (đăng nhập/đă
 marketing_url: "https://www.growgreen.edu.vn/" # website chính (giới thiệu, blog, order)
 timeouts:
   default_ms: 12000
-  
 browsers: ["chromium"]
-
 creds:
   user: "luuthianduyen@gmail.com"
-  pass: "luuthianduyen247" 
- 
+  pass: "luuthianduyen247"  

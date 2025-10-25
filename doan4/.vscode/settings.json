@@ -1,7 +1,7 @@
 {
     "git.ignoreLimitWarning": true,
     "python.testing.pytestArgs": [
-        "."
+        "Pages"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,

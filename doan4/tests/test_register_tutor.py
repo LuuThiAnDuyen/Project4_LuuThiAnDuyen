@@ -6,7 +6,7 @@ from pages.register_tutor_page import RegisterTutorPage  # giả sử tên POM n
 from utils.excel_reader import read_test_data
 
 SCREENSHOT_DIR = os.path.join("reports", "screenshots", "register_tutor")
-VIDEO_DIR = os.path.join("reports", "videos")
+VIDEO_DIR = os.path.join("reports", "videos", "register_tutor")
 os.makedirs(SCREENSHOT_DIR, exist_ok=True)
 os.makedirs(VIDEO_DIR, exist_ok=True)
 
