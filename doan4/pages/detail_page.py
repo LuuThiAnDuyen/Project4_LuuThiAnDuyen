@@ -16,7 +16,7 @@ class DetailPage:
             "xpath=//a[contains(text(),'Tiếp tục')]"
         ).first
 
-        # ✅ Tiêu đề/đoạn text chứa "Nhận lớp" (không phân biệt hoa/thường)
+        #  Tiêu đề/đoạn text chứa "Nhận lớp" (không phân biệt hoa/thường)
         self.note_nhan_lop_heading = self.page.locator("h1,h2,h3").filter(
             has_text=re.compile(r"Nhận\s*lớp", re.I)
         )
@@ -50,7 +50,6 @@ class DetailPage:
 
         # 3) Tạo regex heading duy nhất
         if class_code:
-            # Ví dụ E0073
             pattern = rf"^Note\s+Nhận\s+lớp\s+{re.escape(class_code)}$"
         else:
             pattern = r"^Note\s+Nhận\s+lớp\b"
