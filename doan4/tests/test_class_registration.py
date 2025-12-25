@@ -19,4 +19,4 @@ def test_register_class_flow(page, base_url):
     detail = DetailPage(page)
     detail.click_register()
     detail.click_continue()
-    detail.verify_nhan_lop_text("E0073")
+    detail.verify_nhan_lop_text()

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LoginTestData>
+  <TestCase>
+    <TestCaseID>DangNhap-1</TestCaseID>
+    <Email>luuthianduyen@gmail.com</Email>
+    <Password>luuthianduyen247</Password>
+    <ExpectedMessage>Tài khoản của tôi</ExpectedMessage>
+    <Result>PASS</Result>
+    <Screenshot>reports\screenshots\login\DangNhap-1.png</Screenshot>
+    <Video>reports\videos\login\DangNhap-1.webm</Video>
+  </TestCase>
+  <TestCase>
+    <TestCaseID>DangNhap-2</TestCaseID>
+    <Email />
+    <Password>123456789</Password>
+    <ExpectedMessage>Email là bắt buộc</ExpectedMessage>
+    <Result>PASS</Result>
+    <Screenshot>reports\screenshots\login\DangNhap-2.png</Screenshot>
+    <Video>reports\videos\login\DangNhap-2.webm</Video>
+  </TestCase>
+  <TestCase>
+    <TestCaseID>DangNhap-3</TestCaseID>
+    <Email>luuthianduyen@gmail.com</Email>
+    <Password />
+    <ExpectedMessage>Mật khẩu là bắt buộc</ExpectedMessage>
+    <Result>PASS</Result>
+    <Screenshot>reports\screenshots\login\DangNhap-3.png</Screenshot>
+    <Video>reports\videos\login\DangNhap-3.webm</Video>
+  </TestCase>
+  <TestCase>
+    <TestCaseID>DangNhap-4</TestCaseID>
+    <Email>sai_email@gmail.com</Email>
+    <Password>sai_pass</Password>
+    <ExpectedMessage>Sai tên đăng nhập hoặc mật khẩu</ExpectedMessage>
+    <Result>PASS</Result>
+    <Screenshot>reports\screenshots\login\DangNhap-4.png</Screenshot>
+    <Video>reports\videos\login\DangNhap-4.webm</Video>
+  </TestCase>
+</LoginTestData>

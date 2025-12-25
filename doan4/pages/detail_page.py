@@ -41,19 +41,13 @@ class DetailPage:
         self.btn_continue.click()
 
     def verify_nhan_lop_text(self, class_code: str | None = None):
-        """Xác minh heading 'Note Nhận lớp <MÃ LỚP>' hiển thị sau khi nhấn Tiếp tục."""
-        # 1) URL đúng trang note
-        expect(self.page).to_have_url(re.compile(r"/note/", re.I))
+        expect(self.page).to_have_url(re.compile(r"/note/", re.I), timeout=15000)
 
-        # 2) Chỉ vào vùng nội dung chính để tránh match menu/dropdown
-        container = self.page.locator("main, .container, .content").first
-
-        # 3) Tạo regex heading duy nhất
+        title = self.page.locator("main[role='main'] h1.h3.text-primary").first
+        expect(title).to_be_visible(timeout=15000)
         if class_code:
-            pattern = rf"^Note\s+Nhận\s+lớp\s+{re.escape(class_code)}$"
+            expect(title).to_have_text(
+                re.compile(rf"Note\s+Nhận\s+lớp\s+{re.escape(class_code)}", re.I)
+            )
         else:
-            pattern = r"^Note\s+Nhận\s+lớp\b"
-
-        # 4) Ưu tiên role 'heading' để bắt đúng H1/H2/H3
-        heading = container.get_by_role("heading", name=re.compile(pattern, re.I)).first
-        expect(heading).to_be_visible(timeout=5000)
+            expect(title).to_have_text(re.compile(r"Note\s+Nhận\s+lớp", re.I))

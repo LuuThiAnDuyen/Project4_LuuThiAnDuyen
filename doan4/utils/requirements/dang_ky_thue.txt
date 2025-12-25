@@ -1,0 +1,15 @@
+[User Story]
+As a parent, I want to register a tutor account on GrowGreen so that I can offer my teaching services to students.
+
+[Business Rules]
+- Email must be unique and follow a valid email format.
+- Password must be at least 8 characters, contain letters and numbers.
+- Phone number must be a valid Vietnamese phone number.
+- All required fields (name, email, password, confirm password, phone) must be filled.
+
+[Acceptance Criteria]
+AC01: When user fills all required fields with valid data and clicks "Đăng ký", system creates a new tutor account and redirects to tutor dashboard.
+AC02: When email is missing, show validation message under Email field.
+AC03: When email is invalid format, show validation message about invalid email.
+AC04: When password and confirm password do not match, show validation message about mismatched password.
+AC05: When phone number is invalid, show validation message about wrong phone format.
