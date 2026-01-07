@@ -1,4 +1,4 @@
-# pages/search_newclass_page.py
+
 import re
 from .base_page import BasePage
 

@@ -1,4 +1,4 @@
-# pages/detail_page.py
+
 import re
 from playwright.sync_api import Page, expect
 

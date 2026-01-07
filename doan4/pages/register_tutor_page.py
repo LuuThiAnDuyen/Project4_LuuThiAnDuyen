@@ -1,4 +1,4 @@
-# pages/register_tutor_page.py
+
 from playwright.sync_api import Page, Locator, expect
 
 

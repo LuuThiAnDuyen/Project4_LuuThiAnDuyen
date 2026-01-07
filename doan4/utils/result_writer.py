@@ -1,4 +1,4 @@
-# utils/result_writer.py
+
 import os
 from openpyxl import load_workbook
 from openpyxl.styles import PatternFill, Font

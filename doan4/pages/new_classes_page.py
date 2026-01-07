@@ -1,4 +1,4 @@
-# pages/new_classes_page.py
+
 from playwright.sync_api import expect
 import os, time
 from .base_page import BasePage

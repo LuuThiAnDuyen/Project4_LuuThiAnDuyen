@@ -1,4 +1,4 @@
-# pages/home_page.py
+
 import re
 import os, time
 from playwright.sync_api import expect
@@ -10,7 +10,7 @@ class HomePage(BasePage):
     SEARCH_BUTTON = (
         "button[type='submit'], button:has-text('Tìm'), button:has-text('Search')"
     )
-    # 👉 CHỈNH LẠI TEXT/HREF CHO ĐÚNG THỰC TẾ MENU CỦA BẠN (nếu khác)
+    #  CHỈNH LẠI TEXT/HREF CHO ĐÚNG THỰC TẾ MENU CỦA BẠN (nếu khác)
     NEW_CLASS_LINK = (
         "a:has-text('Lớp học mới'), "
         "a:has-text('New Classes'), "
