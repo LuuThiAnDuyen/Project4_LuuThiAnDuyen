@@ -1,38 +1,38 @@
 [
-    {
-        "TestCaseID": "DangNhap-1",
-        "Email": "luuthianduyen@gmail.com",
-        "Password": "luuthianduyen247",
-        "ExpectedMessage": "Tài khoản của tôi",
-        "Result": "FAIL",
-        "Screenshot": "reports\\screenshots\\login\\DangNhap-1.png",
-        "Video": "reports\\videos\\login\\DangNhap-1.webm"
-    },
-    {
-        "TestCaseID": "DangNhap-2",
-        "Email": "",
-        "Password": "123456789",
-        "ExpectedMessage": "Email là bắt buộc",
-        "Result": "PASS",
-        "Screenshot": "reports\\screenshots\\login\\DangNhap-2.png",
-        "Video": "reports\\videos\\login\\DangNhap-2.webm"
-    },
-    {
-        "TestCaseID": "DangNhap-3",
-        "Email": "luuthianduyen@gmail.com",
-        "Password": "",
-        "ExpectedMessage": "Mật khẩu là bắt buộc",
-        "Result": "PASS",
-        "Screenshot": "reports\\screenshots\\login\\DangNhap-3.png",
-        "Video": "reports\\videos\\login\\DangNhap-3.webm"
-    },
-    {
-        "TestCaseID": "DangNhap-4",
-        "Email": "sai_email@gmail.com",
-        "Password": "sai_pass",
-        "ExpectedMessage": "Sai tên đăng nhập hoặc mật khẩu",
-        "Result": "PASS",
-        "Screenshot": "reports\\screenshots\\login\\DangNhap-4.png",
-        "Video": "reports\\videos\\login\\DangNhap-4.webm"
-    }
+  {
+    "TestCaseID": "DangNhap-1",
+    "Email": "luuthianduyen@gmail.com",
+    "Password": "luuthianduyen247",
+    "ExpectedMessage": "Tài khoản của tôi",
+    "Result": "PASS",
+    "Screenshot": "reports\\screenshots\\login\\DangNhap-1.png",
+    "Video": "reports\\videos\\login\\DangNhap-1.webm"
+  },
+  {
+    "TestCaseID": "DangNhap-2",
+    "Email": "",
+    "Password": "123456789",
+    "ExpectedMessage": "Email là bắt buộc",
+    "Result": "PASS",
+    "Screenshot": "reports\\screenshots\\login\\DangNhap-2.png",
+    "Video": "reports\\videos\\login\\DangNhap-2.webm"
+  },
+  {
+    "TestCaseID": "DangNhap-3",
+    "Email": "luuthianduyen@gmail.com",
+    "Password": "",
+    "ExpectedMessage": "Mật khẩu là bắt buộc",
+    "Result": "PASS",
+    "Screenshot": "reports\\screenshots\\login\\DangNhap-3.png",
+    "Video": "reports\\videos\\login\\DangNhap-3.webm"
+  },
+  {
+    "TestCaseID": "DangNhap-4",
+    "Email": "sai_email@gmail.com",
+    "Password": "sai_pass",
+    "ExpectedMessage": "Sai tên đăng nhập hoặc mật khẩu",
+    "Result": "PASS",
+    "Screenshot": "reports\\screenshots\\login\\DangNhap-4.png",
+    "Video": "reports\\videos\\login\\DangNhap-4.webm"
+  }
 ]

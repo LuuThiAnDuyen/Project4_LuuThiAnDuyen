@@ -1,5 +1,5 @@
-TestCaseID,Email,Password,ExpectedMessage,Result,Screenshot,Video
-DangNhap-1,luuthianduyen@gmail.com,luuthianduyen247,Tài khoản của tôi,PASS,reports\screenshots\login\DangNhap-1.png,reports\videos\login\DangNhap-1.webm
-DangNhap-2,,123456789,Email là bắt buộc,PASS,reports\screenshots\login\DangNhap-2.png,reports\videos\login\DangNhap-2.webm
-DangNhap-3,luuthianduyen@gmail.com,,Mật khẩu là bắt buộc,PASS,reports\screenshots\login\DangNhap-3.png,reports\videos\login\DangNhap-3.webm
-DangNhap-4,sai_email@gmail.com,sai_pass,Sai tên đăng nhập hoặc mật khẩu,PASS,reports\screenshots\login\DangNhap-4.png,reports\videos\login\DangNhap-4.webm
+TestCaseID,Email,Password,ExpectedMessage
+DangNhap-1,luuthianduyen@gmail.com,luuthianduyen247,Tài khoản của tôi
+DangNhap-2,,123456789,Email là bắt buộc
+DangNhap-3,luuthianduyen@gmail.com,,Mật khẩu là bắt buộc
+DangNhap-4,sai_email@gmail.com,sai_pass,Sai tên đăng nhập hoặc mật khẩu

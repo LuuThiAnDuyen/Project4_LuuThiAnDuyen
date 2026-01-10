@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 import os
@@ -186,40 +185,34 @@ def _read_login_from_xml(
 def read_login_cases_any(
     source: str,
     sheet_name: str = "LoginTestData",
-) -> List[Any]:
+) -> List[Tuple[str, str, str, str]]:
     """
-    Trả về list[pytest.param] 7 cột đúng với test_login của bạn:
-      (tcid, email, password, expected_message, actual_result, screenshot, video)
+    Trả về ĐÚNG 4 field cho test:
+    (tcid, email, password, expected_message)
 
-    Đồng thời prefix ID test case theo nguồn dữ liệu:
-      CSV-DangNhap-1, XML-DangNhap-2, YAML-DangNhap-3, ...
+    KHÔNG load: Result, Screenshot, Video
     """
+
     source_abs = _abs_path(source)
     ext = Path(source_abs).suffix.lower()
 
-    # ===== xác định source tag =====
+    # ===== xác định source =====
     if ext in [".xlsx", ".xls"]:
-        source_tag = "EXCEL"
         rows = _read_login_from_excel(source_abs, sheet_name=sheet_name)
     elif ext == ".csv":
-        source_tag = "CSV"
         rows = _read_login_from_csv(source_abs)
     elif ext == ".json":
-        source_tag = "JSON"
         rows = _read_login_from_json(source_abs)
     elif ext in [".yml", ".yaml"]:
-        source_tag = "YAML"
         rows = _read_login_from_yaml(source_abs)
     elif ext == ".xml":
-        source_tag = "XML"
         rows = _read_login_from_xml(source_abs)
     else:
         raise ValueError(f"Unsupported login data file type: {ext}")
 
-    params: List[Any] = []
+    cases: List[Tuple[str, str, str, str]] = []
 
     for r in rows:
-        # ===== map TCID =====
         tcid = (
             r.get("testcaseid")
             or r.get("test_case_id")
@@ -240,25 +233,14 @@ def read_login_cases_any(
             or ""
         )
 
-        actual_result = r.get("result") or r.get("actual_result") or ""
-        screenshot = r.get("screenshot") or ""
-        video = r.get("video") or ""
-
         if str(tcid).strip():
-            # ⭐ PREFIX ID THEO SOURCE
-            param_id = f"{source_tag}-{tcid}"
-
-            params.append(
-                pytest.param(
-                    tcid,
-                    email,
-                    password,
-                    expected_message,
-                    actual_result,
-                    screenshot,
-                    video,
-                    id=param_id,
+            cases.append(
+                (
+                    str(tcid).strip(),
+                    str(email),
+                    str(password),
+                    str(expected_message),
                 )
             )
 
-    return params
+    return cases
